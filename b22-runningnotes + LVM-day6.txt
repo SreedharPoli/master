@@ -1,0 +1,1866 @@
+
+
+Hardware requirement for RHEL 7
+
+RAM = 2 GB
+Disk = 6 GB
+processor = any
+
+
+
+      			/
+
+/ is a parent directory
+ inside this parent directory we will have 13 default important directories.
+
+   1. /boot
+   2. /root
+   3. /home
+   4. /etc
+   5. /var
+   6. /usr
+   7. /sbin(/usr/sbin)
+   8. /bin(/usr/bin)
+   9. /lib
+   10. /proc
+   11. /dev
+   12. /mnt
+   13. /tmp
+
+
+1. /boot : contains the OS bootable files, these files helps to load your operating system.(eg: kernel files).
+
+
+ clear = to clear the screen (ctl+l)
+
+alt+F2
+
+2. /root : it's a home directory of administrator.who is the administrator in Linux/Unix root user.
+        no other user can enter into root user home directory.
+       
+   window: c:/users/admin
+			Desktop,Downloads, Documents.....
+
+	   c:/users/prasad
+			Desktop,Downloads,Documents......
+3. /home  :  contains other users home directories. this is the default location for other users.
+
+4. /etc  : it contains configuration files of operating system and third party tools/softwares configuration files.
+5. /var  :  it contains activity report or log(activity report) of system activities.
+   /var/log i deleted everything from /var/log . is operating sytem will come up? yes
+     unfortunatly deleted /boot directory data. is operating system will cme up? no
+6. /usr;  Unix system resources
+      it contains oprerating system binaries(programs) like commands(ls,cd,cp,rm,useradd,userdel)
+
+  ls  command
+  cd  command
+  pwd command
+  rm   command
+                 /usr/bin ( common commands for all users commands)
+                 /usr/sbin (super(root) user commands)
+
+		useraddministration commands : sbin
+    		 useradd,userdel,usermod
+
+		software managment:   sbin
+		install,uninstall,upgrade
+
+		ls,cd,pwd    =  bin
+
+
+
+7.  /bin  : few commands are seperated from /usr/bin to /bin location. these commands will help during OS boot up.
+8.  /sbin : few commands are seperated from /usr/sbin to /sbin directory or location. these commands will help during os boot up.
+9.  /lib  : it contains libraries of operating system. these libraries(programs) are shared between multiple commands or binraries.
+   libraries are important to run your programs or operating system.
+     /boot = important to load operating system
+     /lib  = imp to load operating system
+10. /proc  :  it a temp directory for processor. this directory used by processor(cpu). it stores data of process or task.
+11. /dev  :  It contains logical device names( cd/DVD, hard disk, RAM,).
+12. /mnt   : guest directory . we can store any data here
+13. /tmp  : it contains every user running processes data. 
+
+
+
+                         File Management
+			=================
+			
+	1. Cat (Concatenate)
+	2. VI  (Virtual interface)
+	3. Touch
+
+windows: Notepad and ms word
+
+  files will be in black colour
+  directories will be in blue
+
+      cat > filename
+	ctrl + d
+==> to view the file content
+	
+cat filename 
+==> to view the file content with line numbers
+	cat -n filename
+
+
+==> how to append content to existing file
+	cat >> batch22
+
+the limitation in cat is we can't modify existing data.
+> create and overwrite  if file is not exists then it creates. If file is exists then it overwrites.
+>> append
+
+VI virtual interface
+
+1. Command mode(default mode)
+2. Insert mode
+3. Replacement mode
+
+
+dd : to delete the cursor standing line
+5dd : to delete 5 lines from the cursor standing line
+1000dd
+u  : to undo the latest changes
+yy : to copy the cursor standing line . this is for copy only one line
+5yy: to copy 5 lines from the cursor standing line. 
+p  : to past copied data below cursor postion. small p
+shift + p : to past copied data above of cursor postion. capital P.
+cc : to cut the cursor postion line
+10cc : to cut 10 from the cursor position line.
+
+how to switch from command mode to insert mode ==> i
+how to switch back to command mode ==> esc we have presess esc key to come back command mode
+
+:se nu : to set the line numbers for the file content
+:se nonu : to unapear/hide line numbers for the file content.
+gg   : to take cursor to file line of the file.
+Shift + g : to take cursor to last line of the file. shift + g is nothing capital G
+:25 : to take cursor to particular line of file
+:15
+
+i : to switch into the insert mode at the same position of cursor.
+a : switch into the insert mode but next position of cursor standing.
+o : create new below of cursor position line and switch to insert mode.
+shift + O : create new line above of cursor position line and switch into insert mode.
+
+:w : save the changes
+:q : quit from the file without save changes
+:wq : is for save changes and quit from the file.
+$   : to take cursor to end of the line
+0(zero)  : to take cursor to starting of the line
+   
+Shift + i I    : Take cursor to starting of the line and switch into insert mode
+shift + a A    : Take cursor to end of the line and swith into insert mode
+i 
+a
+
+Search options
+/word
+?word
+/prasad   : search string from cursor position to down 
+		n is for seach string next location or position.
+		N is go back to previous search
+
+?prasad   : search string froom cursor position to up
+		n is for go back to previous search place
+		N is for search string in the next position
+
+Replace:
+:%s/prasad/prasad babu/g
+:%s/existingword/newword/g
+
+
+x   : is for delete single char from cursor position
+dw  : is for delete one word from the cursor position
+
+r  : is for replace one char from the cursor position.
+Shift + r R  : is for switch from command mode to replacement mode
+esc  is for come back to command mode
+
+< h : is for move cursor to left from cursor standing position.
+> l : is for move cursor to right from cursor standing poistion.
+ k : is for move cursor to up
+ j : is for move cursor to down
+    
+
+   Touch:
+
+it is for update curent date and time of existing file
+ touch is for create empty files this is wrong. the actual functionality is change current timestamp to the existing file.
+
+touch file2 file3 file4 file5 file6 file7
+if file is not exist then touch creates empty file. if file is exist then just update curent date & time to file.
+
+
+how to create 100 file with same format
+
+touch file{1..100}
+
+
+How to create folder/directory
+mkdir testdir
+mkdir <directory nams
+
+   mkdir b22dir
+   mkdir -p /b22dir1/testbarnch/chennai
+
+
+how to know the presently logged in user?
+whoami
+how to switch from one user to another user?
+  su - prasad
+switch user
+
+how we can logout from user?
+   logout
+   exit
+   ctrl + d
+
+how to copy file or directory from one directory to another directory?
+	cp <source file name> <destination path>
+
+       cp /batch22  /var/
+
+
+
+. current path
+.. previous path
+../.. back to 2 previous paths
+../../../ back to 3 previous paths
+
+
+cd /p/r/a/s/a/d
+cd ..
+pwd
+/p/r/a/s/a
+
+  
+
+     cd -
+is for take cursor to previous or old path
+
+cd 
+
+current pwd will change to user home directory. It takes to user home directory.
+
+cd / to take user to / path
+cd /etc to take user to /etc
+but just cd will take user to his home directory.
+cd 
+
+what is the root user home directory?
+/root
+
+what is the prasad user home directory?
+/home/prasad
+
+    remove
+     rm <filename>
+     rm -r <directory name>
+  -r recursively
+  -f forcefully delete file or directory without user confirmation
+
+
+        Move/rename
+      mv filename /etc/
+
+
+how to know the operating system version?
+  cat /etc/os-release
+RHEL = red hat enterprise Linux  7.5
+  4,4.1,4.2,
+  major version is 4,5,6,7,8
+  minor versions = 4.1,4.2,4.10; 5.1,5.2,5.3,5.10;  6.1,6.2,6.3,6.10; 7,7.1,7.2,7.3, 7.10; 8
+
+
+how to know the operating system architecture is 64 bit or 32 bit.
+note: till RHEL 6 they used release both 32 and 64 but from RHEL 7 onwards started releasing only 64 bit.
+
+    uname -m
+    arch
+    hostnamectl status
+
+how to print hostname of machine?
+     uname -n
+     hostname
+
+how to change the hostname?
+    hostnamectl set-hostname newname
+
+system configuration:
+RAM
+processors
+HDD
+ethernet card(network)
+   
+ how to get installed memory(RAM) of server?
+	free -m or free -g 
+	cat /proc/meminfo
+
+	m : size is going show in mega bytes
+	g : size is going show in giga bytes
+	k : kilo
+
+  1024 kb is 1 MB
+  1024 MB is 1 GB
+
+
+free -m
+1023 0
+
+
+
+How to get the processor(CPU) information? how many processors and capacity of processor?
+   lscpu
+list cpu info
+   cat /proc/cpuinfo
+
+How to get disks information?
+  lsblk
+  fdisk -l
+  lsscsi
+
+
+how to get network cards information?
+
+   ip a
+   ifconfig -a
+
+
+how to know platform?
+  dmidecode -s system-product-name
+  hostnamectl status
+how to know the serial number of machine?
+   dmidecode -s system-serial-number
+   
+  how to know the date and time of system?
+	date
+
+
+power off commands: h means halt
+  shutdown -h now
+  shutdown -h 5 
+  shutdown -h 5 " message" 
+  shutdown -h 5 "we are going to power off this server as per maintenance . Please close your things before shutdown"
+  poweroff
+  halt
+  init 0
+
+reboot the server: r means reboot
+  shutdown -r now
+  shutdown -r 5 
+  shutdown -r 5 " message" 
+  shutdown -r 5 " we are going to rebooting this server as per maintenance . Please close your things before shutdown" 
+  reboot
+  init 6
+
+  cp /file1 /tmp/
+  cp -r /testdir /tmp/
+
+
+head and tail commands
+head command is for print starting 10 lines of the file
+head <filename>
+head -20 <filename> 
+head -50 <filename>
+
+tail command is for print last 10 lines of the file
+tail <filename>
+tail -5 <filename>
+tail -100 <filename>
+
+head filename | cat -n
+
+| it can store the previous command output and pass it to next command as a input
+
+cmd1 | cmd2 | cmd3 | cmd4 
+
+               wc(word count)
+   
+
+		wc -w filename
+		wc -l filename
+		wc -c filename
+
+   -w count the words in file
+   -l count the line numbers from the file
+   -c count the char in the file
+
+
+   more old method
+  less advanced . It a copy of vi command.
+  are for read file content page by page
+
+cat /batch22
+  more /var/log/messages
+  more /batch22
+  less /batch22
+
+space key for move on to next page
+b is for back to the previous page
+enter key is for move cursor line by line
+above three options will work in both less and more.
+
+q = quit from the more or less command
+
+in less command to move cursor arrow keys will work but in more command arrow keys will not work 
+
+h = is for to get the help on options
+
+ls -l | more
+read the ls -l output page by page.
+
+    ls options
+ls -l : print the data in long list
+
+
+-rw-r--r-- 2   root  root  4096  10 aug  batch22
+drwxr-xr-x 2   root  root  4096   22 june test
+lrwxrwxrwx 2   root  root  12486  2019 june 20 bin
+
+
+
+field 1 : file type
+  - = regular file
+  d = directory
+  l = linked file or shortcut file from different place
+  b = block device files which can understand end user
+  c = chart device files which can understand OS
+  p = Pip (OS purpose)
+  S = Socket( OS purpose)
+
+Field 2: Permissions
+field 3: Hard link counts  
+field 4 : owner
+field 5 : group
+field 6 : size in bytes
+field 7 : creation/modify date and time of the file/directory
+field 8 : name of file/directory
+
+
+
+
+  ls -lt sort output with date and time
+
+latest will go up
+old will show down
+  ls -ltr 
+ -l long list
+ -t sort out output with date and time
+ -r reverse the output
+
+
+
+
+ls -a prints normal and hidden files/directories
+
+
+     touch .file1
+     mkdir .testdir
+    
+
+vi .tfile22
+
+  date +"%F"
+
+how to set or adjust the date and time?
+  date -s "10 aug 2020 07:20:35 AM"
+how to change the timezone?
+
+step 1 : remove softlink of existing zone file from /etc
+    rm -rf /etc/localtime
+step 2 : create link of timezone file
+	ln -s /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+
+     GREP
+    -----
+
+grep is for search string/word from file or files in one depth of directory.
+
+to search file or directory is exist or not there we will use find command not grep.
+
+1. Grep : To search string in file
+2. find : to search file or directory in system.
+
+
+      grep <word> file name
+      grep <word> *
+      grep -w prasad batch22
+      grep -wc prasad batch22
+ 	grep -wn prasad batch22
+	grep -l prasad *
+	grep -A 5 prasad /logfile
+
+
+
+w = word search
+c = count how many times it exist file
+n = print the line numbers where and all finds the word
+l = list out the filename where and all string exists. it can look only one depth of directory
+A = print 5 lines after string found
+B = print 5 lines before string found
+
+how to search multiple strings
+   grep -w "word1\|word2\|word3\|word4" /filename
+
+
+ 
+
+Linux: Redhat(RHEL),CENTOS,Fedora,SuSE,ubuntu,pupy linux,kaly linux
+
+OS = is nothing collection programs, with help of these programs only we are able to intaract with hardware.
+os is nothing interpreter between end user and hardware.
+
+Unix OS released in 1969. It's purly C based operating system. operating system developed in C language.
+ 
+
+unix is a open source operating system.
+
+code is open to modify 
+
+linux is purly open sorce operating system.
+
+  RHEL (red hat enterprise linux)
+  RHEL 4, 5, 6, 7, 8
+
+ 60-70 machines are running with RHEL 7
+  25 %  machines are running with RHEL 6
+   5 %  machines  are running with RHEL 8
+
+ 
+ RHEL 7 is the major version
+   7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10
+
+
+major 7
+minor 7.1,7.2.....
+
+
+          root is the default administrator in Linux servers
+
+    /
+
+
+        pwd : print working directory
+
+        cd /   : change directory
+ 	ls  : list out the current folder data.
+
+
+
+
+		Disk Management
+
+
+		Disk Architecture
+
+	Disk management methods
+	1. Basic Method
+	2. LVM Method (Logical Volume management)
+	3. Raid(MDADM)
+
+ 
+01011001 = 8 Bits
+
+8 Bits  	= 1 Byte
+1024 Bytes 	= 1 KB (Kilobyte)
+1024 KB		= 1 MB (Megabyte)
+1024 MB		= 1 GB (gigabyte)
+1024 GB		= 1 TB(Terabyte)
+1024 TB		= 1 PB(Petabyte)
+1024 PB		= 1 EB(Exa byte)
+
+1 sector = 512 bytes
+2 sectors = 1 KB
+
+ HDD(IDE method) = Integrated Device electronics (16 partitions) /dev/hda
+
+ scsi = small computer system interface (64 Partitions)   /dev/sda  
+		scsi disk or sata disk
+
+		/dev/sda
+			a is first disk
+			b is second disk
+		/dev/sdb
+		/dev/sdc
+		/dev/sdd1 (1 partition)
+		/dev/sdd2 (2nd partition)
+		/dev/sdd3 (3rd partition)
+		/dev/sdd4 (4th partition)
+
+                /dev/sdd64
+
+
+      
+  	there are 2 types of partitions
+	1. Primary partition 
+	2. Logical partition
+
+primary supports to store bootable files.Like opearting system realated files
+logical is for store general data.
+*  in each scsi disk we can create max 4 primary partitions.
+	/boot is a primary partition
+	/, /var and any other partitions are logical partitions
+
+how to scan for new disk
+  echo " - - - " >> /sys/class/scsi_host/host0/scan
+  echo " - - - " >> /sys/class/scsi_host/host1/scan
+  echo " - - - " >> /sys/class/scsi_host/host2/scan
+
+Create partition using normal method.
+step 1: Create the partition ( enter inside disk and create partition) fdisk /dev/sdb  n ==> p ==> partition number 1 ==> starting sector default just enter ==> ending sectory +2G and enter
+	p : print the partition table information
+	n : create new partition
+	d : delete partition
+	m : help
+	t : change partition system id ( 83 linux, 82 swap , 8e lvm)
+
+
+			/dev/sdb
+			/dv/sdb1    p
+			/dev/sdb2   extended
+			/dev/sdb3   logical
+			/dev/sdb4   logical
+			/dev/sdb5   logical
+
+step 2:  update disk changes to kernel using partprobe command : partprobe /dev/sdb
+step 3:  keep partition in any of the file system type (ext2,ext3,ext4,xfs)   mkfs.xfs /dev/sdb1
+										mkfs.ext4 /dev/sdb2
+		ext2 : RHEL 4
+		ext3 : RHEL 5
+		ext4 : RHEL 6
+		xfs  : RHEL 7 & 8
+
+* explain difference between ext4 and xfs 
+* what is journaling?
+	journaling is nothing but data about data is nothing but meta data. 
+
+		journaling will mantain data about data like how many sectors are allocated for one file and sectors 
+			numbers will be written in meta data.
+
+    benifit: faster repair/recovery in case file system corrupted.
+
+
+step 4:Create one directory and mount the partition to that directory . mkdir /data  mount /dev/sdb1 /data
+step 5: add new file system details in /etc/fstab file to make permanent mount.
+
+   there are 7 Fields in /etc/fstab
+
+
+/dev/sdb1     /data      xfs    defaults  0  1
+/dev/sdc1     /test      xfs    defaults,noauto  0  2
+/dev/sdc5     /oracle      xfs    defaults,noauto  0  2
+
+
+
+Devicename	Mountpoint	Filesystem-type	Permissions	Backup-partition	Filesystem-checkup-during-bootup
+1		2		3		4		5			6	
+
+
+backup 0 = No meta data backup
+       1 = Backup meta data
+for OS partitions we can recomend 1.
+
+/     = OS
+/boot = OS
+/test = other partition
+/oradata = Other partitions
+file system checkup
+  	0 No file system checkup during boot up.  no repair on file system during server coming up.
+	1 : serial file system checkup and first priority file systems.
+	2 : parlel or second priority
+
+
+* explain about fstab fields
+  6 fields
+
+			User Administration
+
+		1. Local user management
+		2. Centralized user management
+
+
+
+create user, modify user, delete user, set password, etc....
+
+
+       servers: why we will build servers?
+
+		to develop application, to supply data from application, to maintain data in the server
+
+ICICI net banking applicatio, HDFC net banking appllication, amazon.com, flipkart.com, sbi net banking
+
+
+   application devel , application support team, DB team, infra team ( OS,network,backup,Storage, Dc team).
+
+      Infra team support:  server build(OS installation), disk management, User management, network setup in OS.
+
+	 20 Members team, for 20 memebers we have to create individual account.
+	also to run application we need to create common user
+	      to run db need one local/common user
+
+
+    Local user management:
+
+    	user name : Max 32 char
+	uid : 
+		0 = root
+		1 - 99 = OS users(system users)lib,bin,.....
+		100 - 999 = id are resorved for third party application/tool users(tomcat,apache,nfs,.....)
+		1000 - 60000 = local users or general users
+
+
+  group:
+	1. Primary group
+	2. secondary group
+  home directory : /home/prasad  /home/venu
+  shells : /bin/sh ,/bin/bash, /bin/dash,/bin/csh , /bin/tcsh & /bin/nologin
+
+
+
+ simple command: 
+	useradd venu
+
+Creating user with specifications:
+	useradd -u 2000 -G 0 -d /opt/venugopal -m -c "Venu G" -s /bin/bash venu
+
+
+	u = UID
+	g = Primary group
+	G = Secondary group
+	d = Home directory path
+	m = Make home directory
+	c = comment
+	s = shell for user
+
+How to know is the user exist in server?
+	id venu
+how to set password for user?
+	passwd username
+	passwd venu
+
+How to get all users informaton?
+   	cat /etc/passwd 
+	grep venu /etc/passwd
+
+last 10 users
+	tail /etc/passwd
+which is the default shell in RHEL?
+	/bin/bash
+
+how to create group
+	groupadd unixgrp
+
+
+     useradd babu2
+
+   each and every user will have one primary group and the users can be member into n number of groups
+  1 primary and he can member into n number of groups
+
+
+
+ group will create along with user
+	useradd appuser
+	   there will app group also
+
+  	for appuser primary group is appuser
+
+	useradd -g appuser -G root appuser1
+		username = appuser1
+		pr gr = appuser
+		se gr = root
+   	        appuser group is shared between appuser and appuser1
+
+	useradd sai
+		primary group = sai
+		login name = sai
+		are you member into any of the group ? no
+
+	useradd -g sai -G root,babu sai1
+		primary group : sai
+		sec group     : root and babu
+
+rwxrwx---
+
+	users information will update in the /etc/passwd
+	password information will update in the /etc/shadow
+	group information will update in the /etc/group
+
+id username
+lid -g groupname
+
+
+* what are fields of /etc/passwd
+  there will be 7 fields, each field will be seperated with :
+	babu:x:2001:2001:babu s:/home/babu:/bin/bash
+
+1: username
+2: pointing to /etc/shadow file for password informaton
+3: Uid
+4: primary group id
+5: comment
+6: home directory
+7: shell 
+
+useradd -u 3000 -G unixgrp -d /opt/salman -m salman
+   /bin/bash
+   salman : pg
+
+/etc/default/useradd 
+this file is going feed the missing informtion to useradd command
+
+/etc/default/useradd file will feed the specification if we haven't specified in useradd command.
+
+
+
+how to specify /bin/dash shell for all upcoming users?
+useradd -s /bin/dash username
+ans : in this case we can update default shell in /etc/default/useradd
+
+already 100 users created with /bin/bash by mistake , here how we can change /bin/bash to /bin/dash shell for these 100 users?
+
+in this case /etc/default/useradd file will not help to change default shell information for existing users.
+
+
+
+useradd -u 5000 -G unixgrp -d /usr/local/apache -m -c "apache user" -s /bin/sh apachetomcat
+
+
+
+password information will be there in /etc/shadow
+
+prasad:encrypted password:18949:2:99:7:10:300
+
+
+there will be 8 fields
+1. Username
+2. encrypted password
+3. password changes days count from jan-1-1970
+4. min age of password  2 days
+5. max age of password  . password is going to expair
+6. warning age of password : war 10 exp 30 from 20 days onwards it will give warning message on screen while login . 
+         user your password is going to expair in 10
+		your password is going to expair in 9 days
+		next 
+7. inactive days for password after password expaires   10 days. 30 but still password will be in active for another 10.
+				30 + 10 40 he can't change password after 40 days.
+			
+		
+8. account expairy days
+
+
+
+
+date aug 20 2020
+  if i say today your contract will expair after one year. what is this mean today aug 20 2021
+
+tomorrow also if i say your   
+
+
+    max 60
+
+for prasad we changed password today.    oct 20
+
+usermod -g existinggroup username
+
+
+expairy is 30
+  18494  
+   21-08-2020 today we changed password
+
+passwd -S prasad
+
+how we can change password age
+   passwd -n 3 -x 90 -w 10 prasad
+
+	-n : min age of password
+	-x : max age of your password
+	-w : warning days of password expairy
+
+lock the password of specified user:    passwd -l prasad
+unlock the password of specified user : passwd -u prasad
+
+  passwd -x 100 prasad
+  passwd -x -1 prasad  : password shoud never expair
+
+   min : n
+   max : x
+   war : w
+
+
+   chage -l prasad
+	chage -M 200 prasad
+	-M : uper case M is for set Maximum age of password
+	-m : small is for set min age of password  passwd -n 3 username but in chage . chage -m 4 prasad
+
+	chage -M -1 prasad
+	or
+	passwd -x -1 prasad
+password should not expair
+
+
+how to lock the account?
+	usermod -L prasad
+how to unlock the account?
+	usermod -U prasad
+passord lock 
+	passwd -l prasad
+	passwd -u prasad
+
+
+how we can identify is the password is locked?
+	/etc/shadow in this file second field if we can see !! before encryption password means password is locked
+	/etc/shadow in this file second field if we can see ! before encryption password means account is locked
+	/etc/shadow in this file second field if we can see only !! without any encryption data means no password set
+
+
+create group
+	groupadd appteam
+	groupadd oraclegrp
+with the specifications creating group
+	groupadd -g 5000 oraclegrp
+
+How to delete user only not home directory?
+	userdel username
+How to delete user with home directory?
+	userdel -r username
+
+How to delete group?
+	groupdel oragrp
+
+which are files will get updated once account creates?
+	1. /etc/passwd
+	2. /etc/shadow
+	3. /etc/group
+
+
+awk command is for print the data in colum vise from output/file.
+
+How to print Only normal users not system users?
+
+How to change password max age to 90 days to users which are having password age more than 90 days
+
+awk -F: '{if ($5 > 90) print $1}' /etc/shadow > /tmp/prasadfile
+ 
+suppose there are 1000 users which are having password age is more than 90
+
+chage -M 90 user1
+chage -m 90 user2
+
+for i in `cat /tmp/prasadfile`
+do
+chage -M 90 $i
+done
+
+
+
+if [ condition1 && condition2 ];
+
+
+   create user
+	mod user
+	delete user
+	what is group
+	1. Primary
+	2. secondary
+	create group
+	modify group
+	adding members into group
+
+what is variable?
+ there are 2 types variables
+	1. System variables 
+	2.User defined variables
+
+
+system variables are predefined variables. functionality or values already stored by operating system developer.
+
+user defined variables: end user will define or store the values in variable.
+
+for system variables you can't change the functionality but we can control the variable with help of options.
+ 
+
+How to list out System variables?
+	env
+
+How to change system variable value temp?
+
+     export SYSTEMVARIABLENAME=
+	export HISTSIZE=3000
+how to set system varaable value perm?
+	step1:update the new value in /etc/profile
+		HISTSIZE=3000
+	step 2: manually refresh the environment configuration file.
+		source /etc/profile
+
+
+How to set variable temp?
+
+		  udf :    a=10
+	    	  system : export HISTSIZE=4000
+		unset a
+		unset HISTSIZE
+
+ 
+
+difference between 3 quotes
+	"  "
+	'  '
+	`  `  you can fine below of esc key
+
+
+" "  is for print the value what we defining
+
+
+
+   Global environment configuration files    : /etc/profile, /etc/bashrc
+   Individual environment configuration files: .bash_profile,.bashrc,.bash_logout .
+	 individual env files we can find in home directories of individual users home directory.
+
+
+By default 3 files will be copied to your user as soon as creates user.
+	1. .bash_profile
+	2. .bashrc
+	3. .bash_logout
+next login onwards one more file will create in his home directory
+	4. .bash_history
+
+by default above 4 files will present in home directory of all the users, include root.
+   skeliton
+
+
+
+
+
+global variables we will set in /etc/profile or /etc/bashrcles 
+
+individual variables we will set in his own files /home/username/.bashrc and .bash_profile
+
+
+
+steps to get ip address and connect through the putty
+   step 1 : open below file and modify onboot=yes
+	ip a
+	here you can find ethernet card name
+	 in my system i can see ens33 is my ethernet card name
+	vi /etc/sysconfig/network-scripts/ifcfg-ens33
+		onboot=yes
+step 2: restart the network service
+	systemctl restart network
+
+now you could able to see the IP address
+	ip a
+
+
+
+		Permissions
+		1. Normal permissions
+		2. Special permissions
+
+
+		Normal: Owner changing and Group changing on file/directory is belongs to Normal permissions
+		Special : Sticky bit, Setuid and Setgid
+
+
+drwxr-xr-x.   2 root root       6 Aug 18 07:28 oradata
+drwxr-xr-x.   2 root root      19 Aug 18 07:33 test
+
+
+
+rwxrwxrwx
+
+u  g  o
+
+u= user/owner
+g= group
+o=others
+
+
+r = read   w = write  x=execution
+ rwx   r-x  r-x
+ 421   401  401
+  7     5    5
+
+how to change permissions using numbers?            
+	chmod 770 /file22
+
+	chmod 777 /file22
+
+
+
+/batch22/test
+
+here test is subdirectory in batch22 dir
+chmod 770 /batch22
+  the above command will change permissions only to /batch22 not to sub content(inside files/dir)
+
+how we can apply permissions to subcontent inside dir?
+	chmod -R 770 /batch22
+
+	the above command will change permissions to /batch22 dir and subcontent also.
+
+
+	
+  root:
+
+	file 644 by default these permissions applied
+	dir  755 by default permissions applied on 
+
+777
+666
+  		root: created file and directory and got below permissions
+		file 	: 644
+		dir  	: 755
+		
+		others:
+		file	: 664
+		dir     : 775
+
+* what is umask? could you please explain about umask?
+		     
+ umask is a controller in default permissions. 
+	eg: per one user or for all the users if you want to apply default permissions then we can modify the umask number.
+
+root user umask is 	: 022
+other users umask is 	: 002
+
+
+
+			dir 777
+			file 666
+
+				777	666
+	root			022	022
+				---	---
+				755	644
+
+------------------------------------------------------
+
+				777	666	
+				002	002	
+	Others			---	---	
+				775	664
+
+
+     
+
+
+				777	666
+				000	000
+				---	---		
+				777	666
+
+				777	666
+				077	066
+				---	---
+				700	600
+	
+how to get current umask value?
+	umask
+	umask 000
+
+
+
+what is default umask for root and system users : 022
+what is default umask for other users  		: 002
+
+How to create multiple users at a time.
+step 1 : create a file with usernames
+	vi /tmp/users
+		user1
+		user2
+		user3
+		user4
+		user5
+step 2 : run below for loop to create users
+	for i in `cat /tmp/users`
+		do
+		useradd $i
+		done
+
+How to set password for multiple users?
+step 1 : create a file with usernames
+	vi /tmp/users
+		user1
+		user2
+		user3
+		user4
+		user5
+step 2 : run below for loop to set same password for all users?
+	for i in `cat/tmp/users`
+		do
+		echo "$i:test12345"|chpasswd
+		done
+
+how to set password in single time without retype same password?
+
+  actually when we try passwd username
+	it expects two times same password to set password
+
+echo "username:test1234567"|chpasswd
+
+
+
+
+	
+
+chmod is for change permissions on file/directory, this command can be execute by any of the user.
+chown is for change owner ship on file /directory, this command will work only for root user.
+
+    file owner prasad he can change permissions but not ownership.
+
+chmod is which catogory command bin/sbin? bin
+chown is which catogory command bin/sbin? sbin
+
+
+chown venu /file22
+chown venu:groupname /file22
+chgrp groupname /file22
+
+chown -R venu /dir
+
+it change the ownership from /dir to n number depths inside /dir to venu
+
+/dir/testdir
+
+  testdir owner was prasad
+
+after executing below command it change the ownership to venu
+	chown -R venu /dir
+
+
+
+* what is inode?
+  the inode is a data structure for file and directory.
+
+    owner,permissions, file creation date and time, sectors, file size in blocks, file access time, links
+
+
+			Links (shortcut)
+			   1. Hard link
+		           2. soft link
+
+* explain differences between hard link and soft link?
+	HARD LINK				SOFT LINK
+1. Hard links shares the same inode number	1. Soft link will maintain different inode number for sorce and destion.
+2. Possible to create link only for files	2. possible to create link for files and directories.
+3. Not possible to create link across the	3. possible to create link across the partitions. from anywhere to  
+	partitions like /boot file can't 	    anywhere
+   possible to create in / partition.
+4. source and linked files size will be same	4. linked files size will be very less because it calculate path and 
+							decide the size. I mean based on lenth of file name it occupies	
+							the linked file size.
+
+
+*  using Hard link file has been linked to other place, now unfortunatly oginal file has been deleted. is linked file can be accessible?
+	ans: Yes still linkd files can be accesible if links are created using hard link. it is almost equal to copy only
+
+
+soft link
+ln -s  source destination
+hard link
+ln source destination
+
+unlink destinationpath
+
+
+			Find
+
+
+
+ 
+to search file or directory.
+
+grep and find
+
+
+grep is for search string in file or files , it can search string only one depth.
+
+
+      	-name 
+      	-perm
+	-ownername -user
+	-groupname -group
+	-size
+	-modify date & time -mtime & -mmin
+	-access date & time> -atime & -amin
+
+
+
+find /etc -name testfile
+
+find <path> -name <fullfillthe option>
+
+
+
+
+
+
+
+find / -name testfile
+
+find / -iname file22
+find / -type f -iname file22 -exec rm -rf {} \;
+
+find / -type f -perm 0777
+find / -type f -perm 0777 -exec chmod 0770 {} \;
+
+
+find / -type f -user prasad 
+find / -type f -user prasad -exec chown venu {} \;
+
+find /etc -type f -mtime +365 
+	-mtime modify days
+
+
+find /etc -type f -mmin -60
+	-mmin = modify min
+find out file which are modified with in 1 hour in /etc directory.
+
+-mmin +60 
+
+find /etc -type f -atime 
+
+
+
+
+
+* application data is there in /app/log/, /app partition is almost full.
+
+ /app is a partition, easy approach is extend partition space. there is alternative way that is clear the old logs.
+
+        find /app/log -type f -mtime +90 -exec rm -rf {} \;
+	find /app/log -type f -mtime +10 -exec gzip {} \;
+
+
+find out older than 6 months files and list out only greater than 1 GB data files?
+ find /data -type f -size +980M -mtime +150
+
+
+a=`find the older than 6 months data` > /files
+b=`find the greater than 1 GB data files`
+
+if [ $a >= 160 && $b >= 1G ];
+then
+do
+else
+fi
+
+ storage team work for lun creation and map to server.
+		
+	Task 1 : create lun in group
+	task 2 : format that lun, they will get one Logical number as soon as they format the lun.
+	task 3 : login to san switches and map lun to respective HBA card with help of wwn.
+
+server is for what purpose? 
+	to run the application,to store data, to process data, to provide interactive application to end user.
+	
+	requirements : create new partition or partitions
+			extend the partition space.
+
+Scenario 1:  How to get disk for physical server?
+ 
+   		partititions : 1. /appd01 100 GB
+			       2. /appd02 100 GB
+			       3. /oradata 1 TB
+			       4./oralogs  1 TB
+
+
+OS administrator got the ticket with above requirements.
+
+Task 1 : OS team will ack ticket and mention comment like.  working on request and update you once partitions are ready.
+
+
+Task 2 : OS team will open new Service request ( SR ) with Storage team.
+  In ticket we have to mention below details.
+
+	details we will fill in storage request form.
+		1. Server name
+		2. DC name
+		3. WWN of all HBA cards
+		4. required size
+		5. type ( Perm/temp) 
+		6. justification or comment
+
+
+Task 3 : attach this storage request form to ticket which we opened with storage team.
+
+Storage team
+Task 4 : Storage team will create lun and map Lun to HBA cards.
+Task 5 : OS administrator will refresh the channels at OS level using echo command.
+		echo " - - - " >> /sys/class/scsi_host/host0/scan
+		echo " - - - " >> /sys/class/scsi_host/host1/scan
+
+- - - 
+c t l
+	C = channel					host0 is nothing but HBA card 1
+	t = target					host1 means HBA card 2
+	l = Lun id
+we are refreshing channel,target,Lun to get newly attached LUNS for HBA cards.
+
+Task 6 : Now disk will apear at server level, but there will 2 disks 
+	how we can see newly connected disks
+		lsblk
+		or
+		tail -100 /var/log/dmesg
+		or
+		cd /dev/ 
+		ls -ltr
+
+storage team created 1 lun with 1 TB and mapped this 1 TB lun to 2 HBA cards.
+
+   How many HBA cards we will referesh? 2 HBA cards. Here we will 2 disks with  1 TB. we shouldn't confuse here with 2 TB.
+		if we have 4 HBA cards, then how many disks will appear in OS side
+			4 disks  = 4 * 1 = 4 TB
+			storage side we got only 1 TB but virtually it appears like 4 disks.
+		/dev/sde
+		/dev/sdf   create common name for four disks = /dev/mpath1
+		/dev/sdg
+		/dev/sdh
+
+		/dev/sdi
+		/dev/sdj	common name = /dev/prasaddisk
+		/dev/sdk
+		/dev/sdl
+
+		fdisk /dev/prasaddisk
+			n
+			1
+			P
+			starting sec
+			end sec
+			w
+				/dev/prasaddisk1
+		
+
+
+* what is meaning of 3 - - -?
+	channel
+	target
+	lun
+
+     		  	multipath
+
+
+How to list out luns with logical number(LUN ID) at os level?
+	multipath -ll
+
+* How to get HBA cards information at OS level? 
+	systool -c fc_host -v
+         speed of HBA card
+	 www number
+	 vendor information
+	 HBA card status(online/offline)
+
+
+30 disks(LUNs)
+
+* HBA card is failed how you can find out which HBA card is failed and replace that part?
+	systool -c fc_host -v
+	here we can find out card status like offline/online.
+	later we will open case with vendor for HBA card replacement.
+		vendors are depends on HARDWARE: HP, DELL,IBM, INTEL
+
+
+* How to create common name for LUNS using multipath tool?
+
+	step 1 : get Logical number of LUN.
+			multipath -ll
+	step 2  : create new common name with Logical id in /etc/multipath.conf
+			multipaths {
+				multipath {
+				wwid360060e801532bc00000132bc00009080     -- new lun id
+				alias b22disk
+   				     }
+				}
+
+	step 3  : refresh the multipath settings
+			multipath -r
+		
+fdisk /dev/b22disk
+ 	n
+
+* How to flush the unused luns from the server?
+	multipath -F
+* what is multipath confiration file and service?
+	service is multipath
+	configuration file is /etc/multipath.conf
+
+
+	 
+    250 LUN
+    100 LUN
+     50 LUN
+ requirement is extend space to one of the lun eg: 50 to that we want to extend 500 GB space
+
+	s1 : open case with storage team with storage request form
+		www numbers, server name, existing disk capacity and Logical number of lun.0
+	s2 : storage administrator will add 500 GB space to existing LUN .
+	s3 : OS administrator will rescan the LUNS.
+		scan echo " - - - " >> /sys/class/scsi_host/host0/scan
+		rescan  echo 1 > /sys/block/sdc/device/rescan
+			echo 1 > /sys/block/sdd/device/rescan
+
+Scenario 2:  How to get disk for virtual machine?
+		virtualization ( VMWARE)
+		Hypervisor software is esxi . esxi is a bare metal os which we will install on top of Physical box.
+		vcentre is a tool which will helps to access and administrate physical machines.
+
+	step 1 : Linux admin will open case with VMWare team to get disk . administrator has to specify below informaton in ticket
+		Server name  & required disk space
+	step 2 : VMware administrator will acknowledge ticket and start creating disk if space is available in datastore.
+
+		what is data store?
+			data store is spool area where will keep luns. it's like virtual storage area.
+		from data store only we will create disks and attache to server.
+	if suppose no space available in Datastore then vmware administrator will co-ordinate with storage team to get LUN
+	once LuN mapped to PHYSICAL BOX then vmware admin scan for LUNS and format that LUNS and add into datastore.
+
+datastore: 1 TB space is available
+        PM = 20 VM
+	all 20 vm's can use 1 TB space.
+
+  datastore is vmware component:
+
+	10 PM =1 cluster(HA) or virtual data centre.
+
+		datastore
+	
+
+for virtual machines echo for rescan doens't require.
+
+find / -type f -mtime +399 -mtime -401
+
+
+
+					LVM
+
+	Logical Volume Manager
+
+Linux: all linux flav (LVM)
+AIX  : LVM
+HP-ux : LVM
+Solaris : SVM (solaris volume manager)
+	
+ 	LVM volume management( disk management)
+	1. create partition
+	2. extend partition space
+	3. reduce partition space
+	4. snapshot for partition
+
+
+	fdisk /dev/sdb
+
+
+
+pvcreate /dev/sdd
+pvcreate /dev/sd{d,e}
+
+pvs or pvdisplay
+
+
+vgcreate oravg /dev/sdd
+vgcreate appvg /dev/sde
+
+vgs or vgdisplay
+lvcreate -L 1G -n data_lv oravg
+
+lvs
+or
+lvdisplay
+  format the partition(lv) with any of the file system type.
+	mkfs.xfs /dev/oravg/data_lv
+create directory and mount lv to that
+	mkdir /oradata01
+	mount /dev/oravg/data_lv /oradata01
+
+
+basic:
+s1 :enter into disk and create partition
+s2 : update disk/partition information to kernel(partprobe )
+s3 : keep partition in any of file system type (mkfs.xfs /dev/sdb1)
+s4 : create one directory and mount the partition with directory (mount /dev/sdb1 /data)
+
+
+Advantages of LVM:
+1. Easy to extend partition space in Online.
+2. Easy to reduce partition space but with downtime(offline) . unmount the partition and reduce.
+	ext2 can possible to reduce partition space 
+	ext3 can possible
+	ext4 can possible
+	xfs  not possible
+3. Online snapshot for partition can possible.
+4. automatic backup will happen at vg level based on changes on vg.
+	eg: unfortunatly deleted lv
+	   vgcfgbackup and vgcfgrestore we can restore lv which has been deleted unfortunatly.
+5. LV's can supports clusters
+
+max we can create 69932 LV's
+
+basic method:
+          /dev/sdb1  4096   102444
+	  /dev/sdb2  102445   125250
+	  /dev/sdb3  125251   200000
+	200000
+not possible to extend space to /dev/sdb1 and /sdb2 but can possible to extend space to /dev/sdb3 becuase continues sectors are free.
+
+
+   lvm configuration file is : /etc/lvm/lvm.conf   file
+				/etc/lvm/backup    directory
+				/etc/lvm/archive   directory
+	 
+
+	service for lvm is : lvm2-lvmetad.service
+		systemctl restart lvm2-lvmetad.service
+
+
+* scenario 1: Create LV from scratch.
+	step1 : co-ordinate with storage/vmware team for new disk
+	step2 : scan for new disk once storage team attach the disk
+	step3 : create partition using basic method(fdisk) and keep 8e system id for partition
+	step4 : update to kernel using partprobe command (partprobe /dev/sdf)
+	step5 : convert partition as pv using pvcreate command
+			pvcreate /dev/sdf1
+	step6 : create new vg with pv, using vgcreate command
+			vgcreate vgname pv
+	step7 : create lv with required size, using lvcreate command
+			lvcreate -L 100G -n lvname vgname
+	step8 : keep the lv in any of the file system type. command is mkfs.xfs
+	step9 : create directory and mount lv to that directory.
+			mkdir /oradata
+			mount /dev/vgname/lvname /oradata
+	step10 : add mount point details in /etc/fstab for permanent mount
+
+		extend activity purly online activity.
+* Scenario 2: Extend partition space to existing partition
+
+	
+	Step 1 : [TRUE] If enough space is available in vg then straight away extend partition space using lvextend command.
+		
+			what is the mountpoint name /db1
+			this lv is belongs to which vg? df -h /db1 and verify device name
+		xfs
+			lvextend -L +1G /dev/oravg/lv_db1
+			xfs_growfs /dev/oravg/lv_db1
+				or
+			lvextend -L +1G /dev/oravg/lv_db1 -r
+		ext4/ext3
+	
+			lvextend -L +1G /dev/oravg/lv_db1
+			resize2fs /dev/oravg/lv_db1
+				or
+			lvextend -L +1G /dev/oravg/lv_db1 -r
+
+		extend 100 gb space to /db1 partition.
+		
+
+	Step 1 : [FALSE] if enough space is not available in vg then?
+		task 1: if machine is Virtual then we will open request with vmware team to get new disk
+			if machine is physical then we will open request with storage team to get new lun
+			it's a vm and we have access to create disk then we will login to vcentre and attach new disk to
+				vm
+		task 2: Refresh the channels using echo command
+		task 3: create partition with 8e system id and convert that partition as a pv.
+		task 4: add newly created pv into existing vg.
+			vgextend vgname pvpath
+			vgextend oravg /dev/sdk1
+		task 5: now we have enough space in vg so we can extend partition space using lvextend command
+			lvextend -L +100G /dev/oravg/lv_db1 -r
+
+		
+* Scenario 3: reduce space from existing partition.
+	note: reduce can possible only for ext3 and ext4 file system not possible for xfs.
+	It's a offline activity. downtime is required to reduce space.
+		offline/downtime means unmount the partition
+	step 1	: get approval from partition owner and unmount the partition
+			umount /db1
+		how much space we decided to remove ? 1 GB
+		what is total size of lv? 3 gB
+	step 2	: arrange the sectors properly to one side using e2fsck command
+			e2fsck -f /dev/oravg/lv_db1
+	step 3  : fix the lvsize or resizing lv size how much you want to keep for the lv.
+			resize2fs /dev/oravg/lv_db1 2G
+			scenario the lv size is 1 TB and in that we decided reduce to 400gB
+			resize2fs /dev/oravg/lv_db2 400G
+	step 4	: reduce the partition space from the lv or release space to vg
+			lvreduce -L -1000m /dev/oravg/lv_db1
+			lvreduce -L -623g  /dev/oravg/lv_db2
+		the released space will go to vg.
+	step 5  :  mount back the partition
+			mount -a
+
+
+* What is PE(Physical extends)?
+		
+		disk ==> pv ==> vg ==> lv
+		
+sec 512 bytes
+2 sec =1 KB
+
+8192 = sec
+		disk 100 GB 
+		sectors will convert into pe's
+
+pes not the sec
+       what is the default size of pe? 
+		4 MB
+		1 PE is = 8192 sec
+
+
+
+
+100 is equal to how many pe's = 25600 PE's
+
+*  when sectors will converts as a pes?
+	when we tagged to vg or when we attach pv with VG.
+
+
+how to specify PE's while creating LV.
+	lvcreate -l 50%FREE -n testlv vgname
+
+
+
+		total pes are 1000 means in above command how pes
+
+		2 gb lv we are creating
+
+* what is difference between small l and -L
+	small l is for assign space to lv with PE's
+	Capital L is for assign space to lv with size
+
+	lvcreate -l 30%FREE -n tlv01 vgname
+	lvcreate -L 3G -n tlv02 vgname
+ 	
+* how to customize PE size?
+	the default size is 4 MB but i want 8 MB of PE
+
+	there are 2 approaches to customize pe size
+	1. while creating vg
+		vgcreate -s 8m tvg /dev/sdg
+	2. update pe size for existing vg
+
+	
+* How to create LV in specific pv?
+
+
+	in vg there are 2 pvs. requirement is the particular lv has to create in particular pv only. In this case how we can create lv in particular pv.
+
+*	how we can pull how many lv's are exist in particular disk(PV)?
+
+	eg:pv name /dev/sdd
+		pvdisplay -m /dev/sdd
+		or
+	lvs -o +devices | grep sdd
+
+below commands are for refresh the changes
+	pvscan
+	vgscan
+	lvscan
+How to disable lv?
+	lvchange -an /dev/oravg/oradatalv
+	lvchange -ay /dev/oravg/oradatalv
+how to disable vg?
+	vgchange -an oravg
+	suppose there are 100 lv's in oravg, if we disable vg level then all lv's will get disabled.
+	vgchange -ay oravg
+
+how to disable pv?
+	pvchange -xn /dev/sdf2
+	pvchange -xy /dev/sdf2
+
+
+* explain about snapshot? what is default size will be occupied by snapshot?
+
+	here we will take snap for LV's. After snapshot creation onwards if somethings goes wrong at lv level then easy recover with snapshop.
+
+	==> simplifies point-in-time copies of lv. 
+	==> only 3 to 5 % space will be occupied by snapshot of orginal lv. Because it's going capture and write only metadata.* is snapshot will grow?
+
+* is snapshot will grow?
+	
+y
+es snapshot will grow based on changes in orginal lv.
+
+
+
+after creating snapshot. we have deleted some data from original lv . is that changes will be captured by lv?
+	yes , the changes will be captured by snapshot.
+
+how to merge snapshot?
+	step 1: unmount the original lv
+		umount /testlv
+	step 2: merge snapshot with original lv
+		lvconvert --merge /dev/vg_test/snapoflv_test01140920
+
+	step 3: mount the lv back
+
+
+* How we can migrate (move) lv's from one pv to another pv?
+  	note: it's a online activity.
+	step 1: add new disk into existing vg
+		vgextend oravg /dev/sdh
+		existing pvs /dev/sdd and /dev/sdf2 along with these 2 we have included /dev/sdh disk.
+	step 2: move lvs from old disk to new disk
+		pvmove /dev/sdd /dev/sdh
+		pvmove /dev/sdf2 /dev/sdh
+	step 3 : after moving data from old disks to new disk then we have to remove them from vg.
+			vgreduce oravg /dev/sdd
+			vgreduce oravg /dev/sdf2
+	step 4 : remove faulty or old disks from pv list
+		pvremove /dev/sdd
+		pvremove /dev/sdf2
+	step 5 : request vmware team to remove disk if machine is  virtual
+		 request storage team to unmap lun from the server if machine is physical
+	note: we should not recommend this proccedure for production servers,because there will be countinuese read and write for the partition so better we can unmount the partitions and start moving lvs from old disk to new disk.
+
+* how we can merge vgs?
+	it's a offline activity
+	right now there are 3 vgs, our intenstion is merge all together .
+		vg_test vg is going to merge with oravg
+	step 1: get approval for unmount the lvs
+	step 2 : unmount the lvs once we recieved approval.
+	step 3 : disable vgs
+			vgchange -an vg_test
+			vgchange -an oravg
+	step 4 : merge the vgs
+			vgmerge oravg vg_test
+	step 5 : enable back vgs
+			vgchage -ay vg_test
+			vgchange -ay oravg
+
+	step 6 : adjust new vg name in /etc/fstab
+	step 7 : Mount back the lvs
+		   mount -a	
+ 
+How to rename lv?
+	step 1: get approval for unmount the lv
+	step 2 : unmount the lv once we recieve approal
+	step 3 : disable lv
+			lvchange -an /dev/oravg/data_lv
+	step 4 : rename the lv
+		  lvrename /dev/oravg/data_lv /dev/oravg/lv_data
+				old		  new
+	step 5 : enable lv
+			lvchange -ay /dev/oravg/lv_data
+	step 6  : correct the fstab entry
+	step 7  : mount back the lv
+			mount -a
+
+	
+	vg backup and restore
+
+
+	/etc/lvm/backup  
+	/etc/lvm/archive
+
+	to list out the recent activities in particular vg.
+		vgcfgrestore -l vg_test
+
+
+* how to identify which are the users and processes are using partition?
+	method 1 : fuser -v /testlv
+	method 2  : lsof /testlv
+
+	
+
+

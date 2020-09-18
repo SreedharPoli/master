@@ -1,0 +1,19 @@
+Please find the below-mentioned Win-VM credentials for you.
+
+IP : 10.0.7.156
+Name : sreedhar-poli-wdev01
+User Name : Administrator
+Password: Rubrik1234
+
+
+Please find the below-mentioned dev VM credentials for you.
+
+IP : 10.0.167.132
+Name: sreedhar-poli-udev01
+User Name: ubuntu
+Password: *vpChmRF2C
+
+
+
+sreedhar-poli-dev01	sreedhar.poli@rubrik.com	sreedhar-poli-wdev01	Migrated on Sept 2nd	Migrated	sreedhar-poli-dev01	10.0.159.179
+sreedhar-poli-udev01	sreedhar.poli@rubrik.com	sreedhar-poli-udev01	Migrated on Sept 2nd	Migrated	sreedhar-poli-udev01	10.0.83.112
